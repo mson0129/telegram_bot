@@ -1,0 +1,32 @@
+name: 소니스토어 A7s III 재고 확인
+on:
+    push:
+        branches:
+            - main
+    schedule:
+        #월-금, 9시부터 18시까지, 매 시간 30분
+        #Github Action은 UTC 기준 한국시간(KST = UTC+9)에서 -9
+        #github action corn 약 15분 지연 고려
+        - cron: "15 0-9 * * 1-5"
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Run
+      env:
+        CHAT_BOT_TOKEN: ${{ secrets.CHAT_BOT_TOKEN }}
+        CHAT_USER_ID: ${{ secrets.CHAT_USER_ID }}
+      run: |
+        python main.py
