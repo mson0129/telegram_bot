@@ -23,7 +23,6 @@ html = urlopen(url)
 bsObject = BeautifulSoup(html, "html.parser")
 parent_path = bsObject.find("p", class_="btnArea")
 links = parent_path.find_all("a")
-print(links[1].text)
 if links[1].text == "일시품절":
     result = name + ": " + links[1].text
 else:
@@ -31,7 +30,7 @@ else:
 
 #메시지 보내기
 chat_token = os.getenv("CHAT_BOT_TOKEN")
-chat_id = os.getenv("CHAT_BOT_TOKEN")
+chat_id = os.getenv("CHAT_USER_ID")
 chat_text = result
 bot = telegram.Bot(token = chat_token)
 bot.sendMessage(chat_id = chat_id, text = chat_text)
