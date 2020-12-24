@@ -1,8 +1,8 @@
 name: Git Push
 on:
-    push:
-        branches:
-            - main
+    schedule:
+        #Github Action은 레포지토리에 60일간 변경사항이 없으면 비활성화되므로, 이를 방지하기 위하여 한 달에 한 번씩 자동 Push 수행
+        - cron: "0 0 1 * *"
 
 jobs:
     build:
