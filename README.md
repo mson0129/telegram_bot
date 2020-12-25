@@ -13,7 +13,7 @@
 Github Actions에 등록된 Workflow를 트리거 이벤트에 따라 실행하고, 그 실행결과를 텔레그램 메시지로 보내거나 이슈에 등록합니다.
 
 ## Github Actions의 특징과 관련 코드 및 설정
-Github Actions가 가지고 있는 특징이 있으며, 해당 특징에서 발생하는 제약 사항을 극복하기 위한 코드 및 설정을 포함하고 있습니다.
+Github Actions가 가지고 있는 특징이 있으며, 해당 특징에서 발생하는 제약 사항을 극복하기 위한 파일 및 설정을 포함하고 있습니다.
 
 ### Github Action의 특징
 Github Actions의 경우 아래와 같은 특징이 있습니다.
@@ -22,12 +22,18 @@ Github Actions의 경우 아래와 같은 특징이 있습니다.
 * cron으로 지정한 시간보다 실제 실행시 15분 이상 지연 실행됨
 * 저장소(Repository)에 60일 이상 변경사항이 없을 경우 Actions는 비활성화됨
 * Private 저장소인 경우 월 사용량(2,000분)에 제한이 있음
+* 트리거 이벤트가 발생할 때마다 새로운 가상 OS 환경이 준비되어 매번 Python 외장 모듈의 설치가 필요함
 
-### 관련 코드
-#### date.txt
+### 관련 파일
+#### [date.txt](https://github.com/mson0129/telegram_bot/blob/main/date.txt)
 60일 이상 저장소 변경사항 없을 경우, Actions가 비활성화되는 것을 막기 위한 파일입니다.
-"telegram_bot/.github/workflows/gitpush.yml"을 통해 등록한 "Git Push" Actions이
-한 달에 한 번씩 date.txt 파일을 생성하고 저장소에 변경사항을 반영합니다.
+["Git Push" Action](https://github.com/mson0129/telegram_bot/blob/main/.github/workflows/gitpush.yml)이 한 달에 한 번씩 date.txt 파일을 생성하고 저장소에 변경사항을 반영합니다.
+
+#### [requirements.txt](https://github.com/mson0129/telegram_bot/blob/main/requirements.txt)
+매 실행시 Python 외장 모듈 설치를 위한 파일입니다.
+작성한 코드 실행 전에 pip install 명령을 통해 파일 내 지정한 모듈을 설치합니다.
+Node.js에서 package.json 파일 내 dependencies 값과 같은 역할입니다.
+["A7S III Ward" Action](https://github.com/mson0129/telegram_bot/blob/main/.github/workflows/ward_a7s3.yml)의 "Install dependencies"에서 모듈을 설치합니다.
 
 ### 관련 설정
 #### 저장소 비밀 변수 설정(Settings > Secret)
@@ -48,8 +54,10 @@ Github Actions의 경우 아래와 같은 특징이 있습니다.
 깃헙 저장소(Github Repository) 내에 설정(Settings)에 있는 Secret에 메시지를 보낼 봇 토큰, 메시지를 받을 사용자 아이디가 저장되어 있습니다.
 해당 정보는 노출되지 않습니다.
 
-## 와드(Wards)
-### A7S III 와드
+## 액션(Actions)
+### 와드(Wards)
+#### [A7S III 와드](https://github.com/mson0129/telegram_bot/blob/main/wards/a7s3.py)
+
 소니스토어 A7S III 와드입니다. 재고 입고시에 텔레그램으로 봇이 메시지를 보내줍니다. 재고 입고 여부와 상관 없이 확인 결과를 저장소 이슈로 생성(Creating)하고 마감(Closing)합니다.
 
 # 참조(References)
