@@ -8,7 +8,7 @@
 ![beautifulsoup4](https://img.shields.io/badge/beautifulsoup4-v4.9.3-blue)
 
 [![Git Push](https://github.com/mson0129/telegram_bot/workflows/Git%20Push/badge.svg?event=schedule "Github Actions")](https://github.com/mson0129/telegram_bot/actions)
-[![Wards](https://github.com/mson0129/telegram_bot/workflows/Wards/badge.svg?event=schedule "Github Actions")](https://github.com/mson0129/telegram_bot/actions)
+[![Wards](https://github.com/mson0129/telegram_bot/workflows/A7S%20III%20Wards/badge.svg?event=schedule "Github Actions")](https://github.com/mson0129/telegram_bot/actions)
 
 Github Actions에 등록된 Workflow를 트리거 이벤트에 따라 실행하고, 그 실행결과를 텔레그램 메시지로 보내거나 이슈에 등록합니다.
 
