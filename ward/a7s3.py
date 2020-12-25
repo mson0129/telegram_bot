@@ -42,7 +42,7 @@ else:
 keyboard = [
     [telegram.InlineKeyboardButton(text="사이트로 이동", url=url)]
 ]
-text = "{target}: {title}\n{body}\n.{url}".format(target=target, title=title, body=body, target=target)
+text = "{target}: {title}\n{body}\n".format(target=target, title=title, body=body)
 chat_token = os.environ["CHAT_BOT_TOKEN"]
 chat_id = os.environ["CHAT_USER_ID"]
 bot = telegram.Bot(token = chat_token)
