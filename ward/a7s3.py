@@ -23,9 +23,7 @@ html = urlopen(url)
 bsObject = BeautifulSoup(html, "html.parser")
 parent_path = bsObject.find("p", class_="btnArea")
 links = parent_path.find_all("a")
-if links[1].text == "일시품절":
-    result = name + ": " + links[1].text
-else:
+if links[1].text != "일시품절":
     result = name + ": " + "지금 바로 구매하세요.\n" + url
 
 #메시지 보내기
