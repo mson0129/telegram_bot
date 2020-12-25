@@ -1,19 +1,40 @@
 # 텔레그램 봇
 
-## 개요
-Github Actions에 등록된 Workflow를 트리거 이벤트에 따라 실행하고,
-그 실행결과를 텔레그램 메시지로 보내거나 이슈에 등록합니다.
+[![MIT License](https://img.shields.io/github/license/mson0129/telegram_bot)](https://www.mit.edu/~amini/LICENSE.md)
+![Repo Size](https://img.shields.io/github/repo-size/mson0129/telegram_bot)
 
+![PyGithub](https://img.shields.io/badge/PyGithub-v1.51-blue)
+![python-telegram-bot](https://img.shields.io/badge/python--telegram--bot-v13.1-blue)
+![beautifulsoup4](https://img.shields.io/badge/beautifulsoup4-v4.9.3-blue)
+
+[![Git Push](https://github.com/mson0129/telegram_bot/workflows/Git%20Push/badge.svg?event=schedule "Github Actions")](https://github.com/mson0129/telegram_bot/actions)
+[![Wards](https://github.com/mson0129/telegram_bot/workflows/Wards/badge.svg?event=schedule "Github Actions")](https://github.com/mson0129/telegram_bot/actions)
+
+Github Actions에 등록된 Workflow를 트리거 이벤트에 따라 실행하고, 그 실행결과를 텔레그램 메시지로 보내거나 이슈에 등록합니다.
+
+## Github Actions의 특징과 관련 코드 및 설정
+Github Actions가 가지고 있는 특징이 있으며, 해당 특징에서 발생하는 제약 사항을 극복하기 위한 코드 및 설정을 포함하고 있습니다.
+
+### Github Action의 특징
 Github Actions의 경우 아래와 같은 특징이 있습니다.
 * cron(crontab)으로 지정한 스케쥴 대로 모든 것이 실행되지 않음
 * cron으로 지정할 수 있는 최소 스케줄 간격은 5분임
 * cron으로 지정한 시간보다 실제 실행시 15분 이상 지연 실행됨
-* 저장소(Repository)에 60일 이상 변경사항이 없을 경우, Actions는 비활성화됨
-* Private 저장소인 경우 월 사용량에 제한이 있으며, 최대 사용 시간은 2000분임
+* 저장소(Repository)에 60일 이상 변경사항이 없을 경우 Actions는 비활성화됨
+* Private 저장소인 경우 월 사용량(2,000분)에 제한이 있음
 
-## 저장소 설정(Settings > Secret)
+### 관련 코드
+#### date.txt
+60일 이상 저장소 변경사항 없을 경우, Actions가 비활성화되는 것을 막기 위한 파일입니다.
+"telegram_bot/.github/workflows/gitpush.yml"을 통해 등록한 "Git Push" Actions이
+한 달에 한 번씩 date.txt 파일을 생성하고 저장소에 변경사항을 반영합니다.
 
-저장소에 다음과 같은 정보를 사전에 설정해야 합니다
+### 관련 설정
+#### 저장소 비밀 변수 설정(Settings > Secret)
+비공개(Private) 저장소인 경우 월 사용량 제한이 있으므로, 저장소를 공개 저장소로 사용하는 것이 좋습니다.
+다만 Github이나 텔레그램과 연동하기 위해 사용되는 인증 토큰/키, ID들은 민감 정보이므로 소스코드로부터 분리가 필요합니다.
+이들은 저장소 비밀 변수로 설정이 가능하며, 해당 정보는 Python 코드 내에서 환경변수로 그 값을 가져올 수 있습니다.
+(os 모듈 import 후, os.environ 딕셔너리 활용)
 
 1. 메시지를 보낼 텔레그램 봇의 토큰
 
@@ -27,16 +48,11 @@ Github Actions의 경우 아래와 같은 특징이 있습니다.
 깃헙 저장소(Github Repository) 내에 설정(Settings)에 있는 Secret에 메시지를 보낼 봇 토큰, 메시지를 받을 사용자 아이디가 저장되어 있습니다.
 해당 정보는 노출되지 않습니다.
 
-## date.txt
-60일간 저장소에 변경 사항이 없을 경우 비활성화되는 Github Actions의 특성 때문에 존재하는 파일입니다.
-"telegram_bot/.github/workflows/gitpush.yml"을 통해 등록한 "Git Push" Actions이
-한 달에 한 번씩 date.txt 파일을 생성하고 저장소에 변경사항을 반영합니다.
-
 ## 와드(Wards)
 ### A7S III 와드
-소니스토어 A7S III 와드입니다. 재고 입고시에 텔레그램으로 봇이 메시지를 보내줍니다.
+소니스토어 A7S III 와드입니다. 재고 입고시에 텔레그램으로 봇이 메시지를 보내줍니다. 재고 입고 여부와 상관 없이 확인 결과를 저장소 이슈로 생성(Creating)하고 마감(Closing)합니다.
 
-# 참조(Reference)
+# 참조(References)
 ## 예제 코드(Articles)
 ### Github Actions
 * [피터팬의 좋은 방 구하기 예제](https://github.com/heejongahn/tinkerbell-template)
@@ -57,7 +73,7 @@ Github Actions의 경우 아래와 같은 특징이 있습니다.
 
     * Yes24를 크롤링(Crawling)하여 저장소 이슈를 생성하는 방식으로 결과를 저장(피터팬의 좋은 방 구하기 예제와 동일 작동)합니다.
 
-### 텔레그램
+### 텔레그램(Telegram)
 
 * [파이썬을 이용하여 텔레그램(Telegram) 메세지 보내기](https://pydole.tistory.com/entry/Python-%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-%ED%85%94%EB%A0%88%EA%B7%B8%EB%9E%A8Telegram-%EB%A9%94%EC%84%B8%EC%A7%80-%EB%B3%B4%EB%82%B4%EA%B8%B0)
 
