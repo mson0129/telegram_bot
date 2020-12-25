@@ -1,5 +1,8 @@
 name: 소니스토어 A7s III 재고 확인 와드
 on:
+    push:
+        branches:
+            - main
     schedule:
         #월-금, 9시부터 18시까지, 매 시간 30분
         #Github Action은 UTC 기준 한국시간(KST = UTC+9)에서 -9
