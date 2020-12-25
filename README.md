@@ -70,7 +70,7 @@ Node.js에서 package.json 파일 내 dependencies 값과 같은 역할입니다
 
     * Node.js 및 TypeScript 기반
 
-    * [마이크로 소프트웨어 잡지](https://www.imaso.co.kr/archives/5649)에서 접하여 가장 먼처 잠조하였던 코드이며, 피터팬의 좋은 방 구하기에서 값을 가져와 저장소 이슈를 생성하는 방식으로 결과를 저장합니다. Node.js 특성 상 처리하는 업무 대비 파일 및 코드량이 많아 Python을 검토하는 계기가 되었습니다.
+    * [마이크로 소프트웨어 잡지](https://www.imaso.co.kr/archives/5649)에서 접하여 가장 먼처 참조하였던 코드이며, 피터팬의 좋은 방 구하기에서 값을 가져와 저장소 이슈를 생성하는 방식으로 결과를 저장합니다. Node.js 특성 상 처리하는 업무 대비 파일 및 코드량이 많아 Python을 검토하는 계기가 되었습니다.
 
 * [Github Action Practice](https://github.com/jonnung/github-action-practice)
 
