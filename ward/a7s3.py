@@ -1,7 +1,7 @@
 #내장 모듈
 import os
-#외장 모듈
 from urllib.request import urlopen
+#외장 모듈
 from bs4 import BeautifulSoup
 from github import Github
 import telegram
