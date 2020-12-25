@@ -34,8 +34,9 @@ if links[1].text != "일시품절":
 else:
     try:
         g = Github(os.environ["MY_GITHUB_TOKEN"])
-        print(g.get_user())
-        repo = g.get_user().get_repo("mson0129/telegram_bot")
+        user = g.get_user()
+        print(user.name)
+        repo = g.get_user().get_repo("telegram_bot")
         repo.create_issue(title="A7S III 와드", body="재고없음")
         print("A7S III 와드: 재고없음")
     except:
