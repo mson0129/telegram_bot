@@ -1,4 +1,4 @@
-name: 소니스토어 A7s III 재고 확인 와드
+name: Wards
 on:
     push:
         branches:
@@ -6,7 +6,8 @@ on:
     schedule:
         #월-금, 9시부터 18시까지, 매 시간 30분
         #Github Action은 UTC 기준 한국시간(KST = UTC+9)에서 -9
-        #github action corn 약 15분 지연 고려
+        #github action corn 약 15분 지연 실행함
+        #최소 간격은 5분이지만, 실제로 예정된 스캐줄대로 전부 실행되지 않음(제약사항)
         - cron: "*/5 0-9 * * 1-5"
 
 jobs:
@@ -28,7 +29,6 @@ jobs:
       env:
         CHAT_BOT_TOKEN: ${{ secrets.CHAT_BOT_TOKEN }}
         CHAT_USER_ID: ${{ secrets.CHAT_USER_ID }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
       run: |
-        python ward/a7s3.py
+        python ward/*.py
