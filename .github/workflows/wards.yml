@@ -31,4 +31,4 @@ jobs:
         CHAT_USER_ID: ${{ secrets.CHAT_USER_ID }}
         MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
       run: |
-        python ward/*.py
+        python wards/a7s3.py
