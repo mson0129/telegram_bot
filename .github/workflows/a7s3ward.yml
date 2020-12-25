@@ -28,6 +28,7 @@ jobs:
       env:
         CHAT_BOT_TOKEN: ${{ secrets.CHAT_BOT_TOKEN }}
         CHAT_USER_ID: ${{ secrets.CHAT_USER_ID }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
       run: |
         python ward/a7s3.py
