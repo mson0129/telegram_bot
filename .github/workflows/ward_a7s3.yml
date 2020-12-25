@@ -1,4 +1,4 @@
-name: Wards
+name: A7S III Wards
 on:
     schedule:
         #월-금, 9시부터 18시까지, 매 시간 30분
