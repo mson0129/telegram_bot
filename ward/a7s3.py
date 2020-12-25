@@ -33,7 +33,7 @@ if links[1].text != "일시품절":
     bot.sendMessage(chat_id = chat_id, text = chat_text)
 else:
     try:
-        g = Github(os.environ["MY_GITHUB_TOKEN"])
+        g = Github(os.environ["GITHUB_TOKEN"])
         user = g.get_user()
         print(user.name)
         repo = g.get_user().get_repo("telegram_bot")
