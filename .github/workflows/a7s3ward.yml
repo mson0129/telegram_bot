@@ -1,4 +1,4 @@
-name: 소니스토어 A7s III 재고 확인
+name: 소니스토어 A7s III 재고 확인 와드
 on:
     schedule:
         #월-금, 9시부터 18시까지, 매 시간 30분
@@ -26,4 +26,4 @@ jobs:
         CHAT_BOT_TOKEN: ${{ secrets.CHAT_BOT_TOKEN }}
         CHAT_USER_ID: ${{ secrets.CHAT_USER_ID }}
       run: |
-        python main.py
+        python ward/a7s3.py
