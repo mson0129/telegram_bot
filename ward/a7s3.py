@@ -44,14 +44,14 @@ else:
 keyboard = [
     [telegram.InlineKeyboardButton(text="사이트로 이동", url=url)]
 ]
-text = "*{target}: {title}*\n{body}\n".format(target=target, title=title, body=body)
+text = "<b>{target}: {title}</b>\n{body}\n".format(target=target, title=title, body=body)
 chat_token = os.environ["CHAT_BOT_TOKEN"]
 chat_id = os.environ["CHAT_USER_ID"]
 bot = telegram.Bot(token = chat_token)
 bot.send_message(
     chat_id = chat_id,
     text = text,
-    parse_mode="MarkdownV2",
+    parse_mode="HTML",
     disable_notification=disable_notification,
     reply_markup=telegram.InlineKeyboardMarkup(keyboard)
 )
