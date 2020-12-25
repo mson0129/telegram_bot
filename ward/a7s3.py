@@ -35,7 +35,9 @@ else:
     try:
         g = Github(os.environ["MY_GITHUB_TOKEN"])
         repo = g.get_user().get_repo("telegram_bot")
-        repo.create_issue(title="A7S III 와드", body="재고없음")
-        print("A7S III 와드: 재고없음")
+        repo.create_issue(title="A7S III 와드: 재고 없음", body="재고없음")
+        open_issues = repo.get_issues(state='open')
+        for issue in open_issues:
+            issue.edit(state='closed')
     except:
         print("에러 발생했습니다.")
