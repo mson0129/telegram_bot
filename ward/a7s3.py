@@ -33,7 +33,7 @@ if links[1].text != "일시품절":
     bot.sendMessage(chat_id = chat_id, text = chat_text)
 else:
     try:
-        g = Github(os.environ["MY_GITHUB_TOKEN"])
+        g = Github(os.environ["GITHUB_TOKEN"])
         print(g.get_user())
         repo = g.get_user().get_repo("telegram_bot")
         repo.create_issue(title="A7S III 와드", body="재고없음")
