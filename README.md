@@ -2,6 +2,7 @@
 
 [![MIT License](https://img.shields.io/github/license/mson0129/telegram_bot)](https://www.mit.edu/~amini/LICENSE.md)
 ![Repo Size](https://img.shields.io/github/repo-size/mson0129/telegram_bot)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fmson0129%2Ftelegram_bot&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
 ![PyGithub](https://img.shields.io/badge/PyGithub-v1.51-blue)
 ![python-telegram-bot](https://img.shields.io/badge/python--telegram--bot-v13.1-blue)
