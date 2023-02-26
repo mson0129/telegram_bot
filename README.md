@@ -63,6 +63,10 @@ Node.js에서 package.json 파일 내 dependencies 값과 같은 역할입니다
 
 소니스토어 A7S III 와드입니다. 재고 입고시에 텔레그램으로 봇이 메시지를 보내줍니다. 재고 입고 여부와 상관 없이 확인 결과를 저장소 이슈로 생성(Creating)하고 마감(Closing)합니다.
 
+#### [중소기업 근로자 특별공급 신청 와드](https://github.com/mson0129/telegram_bot/blob/main/wards/smb.py)
+
+중소기업 근로자 특별공급의 추천서 신청을 하기 위한, 주택특별공급 사업공고 와드입니다. 서울지역 신고 공고 발생시에 텔레그램으로 봇이 메시지를 보내줍니다.
+
 # 참조(References)
 ## 예제 코드(Articles)
 ### Github Actions

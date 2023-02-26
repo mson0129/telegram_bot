@@ -1,11 +1,11 @@
-name: A7S III Ward
+name: SMB Ward
 on:
     schedule:
-        #월-금, 9시부터 18시까지, 매 시간 30분
-        #Github Action은 UTC 기준 한국시간(KST = UTC+9)에서 -9
-        #github action corn 약 15분 지연 실행함
-        #최소 간격은 5분이지만, 실제로 예정된 스캐줄대로 전부 실행되지 않음(제약사항)
-        - cron: "*/5 0-9 * * 1-5"
+        # 월-금 9시, 13시, 18시 정각
+        # Github Action은 UTC 기준 한국시간(KST = UTC+9)에서 -9
+        # github action corn 약 15분 지연 실행함
+        # 최소 간격은 5분이지만, 실제로 예정된 스캐줄대로 전부 실행되지 않음(제약사항)
+        - cron: "0 0,4,9 * * 1-5"
 
 jobs:
   deploy:
@@ -28,4 +28,4 @@ jobs:
         CHAT_USER_ID: ${{ secrets.CHAT_USER_ID }}
         MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
       run: |
-        python wards/a7s3.py
+        python wards/smb_subscription.py

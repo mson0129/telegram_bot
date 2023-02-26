@@ -2,6 +2,7 @@
 import os
 import time
 from urllib.request import urlopen
+import asyncio
 #외장 모듈
 #pip install -r requirements.txt
 from bs4 import BeautifulSoup
@@ -66,12 +67,7 @@ try:
             [telegram.InlineKeyboardButton(text="사이트로 이동", url=url)]
         ]
         text = "<b>{target}: {title}</b>\n{body}\n{url}".format(target=target, title=title, body=body)
-        bot.send_message(
-            chat_id = chat_id,
-            text = text,
-            parse_mode="HTML",
-            reply_markup=telegram.InlineKeyboardMarkup(keyboard)
-        )
+        asyncio.run(bot.send_message(chat_id = chat_id, text = text, parse_mod = "HTML", reply_markup = telegram.InlineKeyboardMarkup(keyboard)))
 except ConnectionError as e:
     #비정상 종료
     #이슈 남기기
@@ -83,12 +79,7 @@ except ConnectionError as e:
         [telegram.InlineKeyboardButton(text="Github 저장소로 이동", url="https://github.com/mson0129/telegram_bot/issues")]
     ]
     text = "<b>{target}: {title}</b>\n{body}".format(target=target, title=title, body=body)
-    bot.send_message(
-        chat_id = chat_id,
-        text = text,
-        parse_mode="HTML",
-        reply_markup=telegram.InlineKeyboardMarkup(keyboard)
-    )
+    asyncio.run(bot.send_message(chat_id = chat_id, text = text, parse_mode = "HTML", reply_markup = telegram.InlineKeyboardMarkup(keyboard)))
 except Exception as e:
     #연결 오류 외 비정상 종료
     #이슈 남기기
@@ -100,12 +91,12 @@ except Exception as e:
         [telegram.InlineKeyboardButton(text="Github 저장소로 이동", url="https://github.com/mson0129/telegram_bot/issues")]
     ]
     text = "<b>{target}: {title}</b>\n{body}".format(target=target, title=title, body=body)
-    bot.send_message(
+    asyncio.run(bot.send_message(
         chat_id = chat_id,
         text = text,
         parse_mode="HTML",
         reply_markup=telegram.InlineKeyboardMarkup(keyboard)
-    )
+    ))
 else:
     #정상 종료
     #이슈 남기기
