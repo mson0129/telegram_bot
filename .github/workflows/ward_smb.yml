@@ -5,7 +5,9 @@ on:
         # Github Action은 UTC 기준 한국시간(KST = UTC+9)에서 -9
         # github action corn 약 15분 지연 실행함
         # 최소 간격은 5분이지만, 실제로 예정된 스캐줄대로 전부 실행되지 않음(제약사항)
-        - cron: "0 0,4,9 * * 1-5"
+        # - cron: "0 0,4,9 * * 1-5"
+        - cron: "*/5 * * * *" # 테스트
+        
 
 jobs:
   deploy:
