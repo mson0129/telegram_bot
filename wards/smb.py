@@ -4,6 +4,8 @@ import time
 import json
 from urllib.request import Request, urlopen
 import asyncio
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 #외장 모듈
 #pip install -r requirements.txt
 from github import Github
@@ -42,7 +44,7 @@ try:
             res = urlopen(req)
             break
         except:
-            print("{i}회 연결 에러".format(i=i+1))
+            print(f"""{i+1}회 연결 에러""")
             if i == 9:
                 raise ConnectionError
             else:
