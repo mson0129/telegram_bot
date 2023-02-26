@@ -28,7 +28,7 @@ headers = {
 target = "주택특별공급 사업공고"
 
 g = Github(os.environ["GITHUB_TOKEN"])
-repo = g.get_user().get_repo("telegram_bot")
+repo = g.get_repo("telegram_bot")
 
 chat_token = os.environ["CHAT_BOT_TOKEN"]
 chat_id = os.environ["CHAT_USER_ID"]
