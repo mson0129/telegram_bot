@@ -30,4 +30,4 @@ jobs:
         CHAT_USER_ID: ${{ secrets.CHAT_USER_ID }}
         MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
       run: |
-        python wards/smb_subscription.py
+        python wards/smb.py
