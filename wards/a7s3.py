@@ -26,8 +26,8 @@ for u in updates:
 url = "https://store.sony.co.kr/handler/ViewProduct-Start?productId=32851960"
 target = "A7S III"
 
-g = Github(os.environ["MY_GITHUB_TOKEN"])
-repo = g.get_user().get_repo("telegram_bot")
+g = Github(os.environ["GITHUB_TOKEN"])
+repo = g.get_repo("mson0129/telegram_bot")
 
 chat_token = os.environ["CHAT_BOT_TOKEN"]
 chat_id = os.environ["CHAT_USER_ID"]

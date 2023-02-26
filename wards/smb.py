@@ -53,8 +53,8 @@ try:
     
     # JSON 파싱 및 데이터 전처리
     res_json = json.loads(res.read().decode("UTF-8"))
-    # res_arr = [v for v in res_json["dc_getList01"] if v["LIMITDATEYN"] == "N" and v["CHRGDEPTNM"].find("서울") > -1] # 서울 지역만, 종료된 공고 제외
-    res_arr = [v for v in res_json["dc_getList01"] if v["CHRGDEPTNM"].find("서울") > -1] # 서울 지역만 - 테스트용
+    res_arr = [v for v in res_json["dc_getList01"] if v["LIMITDATEYN"] == "N" and v["CHRGDEPTNM"].find("서울") > -1] # 서울 지역만, 종료된 공고 제외
+    # res_arr = [v for v in res_json["dc_getList01"] if v["CHRGDEPTNM"].find("서울") > -1] # 서울 지역만 - 테스트용
 
     # 결과가 1개 이상인 경우, 메시지 생성 & 보내기
     if len(res_arr) > 0:
